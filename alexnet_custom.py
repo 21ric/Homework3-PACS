@@ -68,6 +68,6 @@ def alexnet(pretrained=False, progress=True, **kwargs):
     model = AlexNet(**kwargs)
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls['alexnet'],
-                                              progress=progress)
+                                              progress=progress, strict=False)
         model.load_state_dict(state_dict)
     return model
