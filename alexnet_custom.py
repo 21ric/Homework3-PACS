@@ -81,6 +81,7 @@ class AlexNet(nn.Module):
         # If we don't pass alpha, we assume we are training with supervision
         else:
             # do something else
+            print('hello2')
             class_outputs = self.classifier(features)
             return class_outputs
 
