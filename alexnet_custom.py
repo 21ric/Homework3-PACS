@@ -16,6 +16,7 @@ class ReverseLayerF(Function):
     # Sends backward reversed gradients
     @staticmethod
     def forward(ctx, x, alpha):
+        print('ggg')
         ctx.alpha = alpha
 
         return x.view_as(x)
@@ -67,6 +68,7 @@ class AlexNet(nn.Module):
     
     
     def forward(self, x, alpha=None):
+        print('fff')
         features = self.features(x)
         features = self.avgpool(features)
         # Flatten the features:
@@ -87,6 +89,7 @@ class AlexNet(nn.Module):
 
 
 def alexnet(pretrained=False, progress=True, **kwargs):
+    print('aaaaa')
     r"""AlexNet model architecture from the
     `"One weird trick..." <https://arxiv.org/abs/1404.5997>`_ paper.
     Args:
