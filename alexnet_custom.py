@@ -73,6 +73,7 @@ class AlexNet(nn.Module):
         features = features.view(features.size(0), -1)
         # If we pass alpha, we can assume we are training the discriminator
         if alpha is not None:
+            print('hello')
             # gradient reversal layer (backward gradients will be reversed)
             reverse_feature = ReverseLayerF.apply(features, alpha)
             discriminator_output = self.dann_classifier(reverse_feature)
