@@ -68,14 +68,12 @@ class AlexNet(nn.Module):
     
     
     def forward(self, x, alpha=None):
-        print('fff')
         features = self.features(x)
         features = self.avgpool(features)
         # Flatten the features:
         features = features.view(features.size(0), -1)
         # If we pass alpha, we can assume we are training the discriminator
         if alpha is not None:
-            print('hello')
             # gradient reversal layer (backward gradients will be reversed)
             reverse_feature = ReverseLayerF.apply(features, alpha)
             discriminator_output = self.dann_classifier(reverse_feature)
@@ -83,15 +81,10 @@ class AlexNet(nn.Module):
         # If we don't pass alpha, we assume we are training with supervision
         else:
             # do something else
-            print('hello2')
             class_outputs = self.classifier(features)
             return class_outputs
 
-def function():
-    print('HELLO')
-        
 def alexnet(pretrained=False, progress=True, **kwargs):
-    print('aaaaa')
     r"""AlexNet model architecture from the
     `"One weird trick..." <https://arxiv.org/abs/1404.5997>`_ paper.
     Args:
