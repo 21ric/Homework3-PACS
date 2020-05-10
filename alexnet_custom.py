@@ -87,8 +87,8 @@ class AlexNet(nn.Module):
             class_outputs = self.classifier(features)
             return class_outputs
 
-def print_try():
-    print('hello')
+def function():
+    print('HELLO')
         
 def alexnet(pretrained=False, progress=True, **kwargs):
     print('aaaaa')
