@@ -16,7 +16,6 @@ class ReverseLayerF(Function):
     # Sends backward reversed gradients
     @staticmethod
     def forward(ctx, x, alpha):
-        print('ggg')
         ctx.alpha = alpha
 
         return x.view_as(x)
