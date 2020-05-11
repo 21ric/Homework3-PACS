@@ -65,7 +65,7 @@ class AlexNet(nn.Module):
             nn.Linear(4096, num_classes),
         )
     
-    """
+    
     def forward(self, x, alpha=None):
         features = self.features(x)
         features = self.avgpool(features)
@@ -90,7 +90,7 @@ class AlexNet(nn.Module):
         x = torch.flatten(x, 1)
         x = self.classifier(x)
         return x
-
+    """
 def alexnet(pretrained=False, progress=True, **kwargs):
     r"""AlexNet model architecture from the
     `"One weird trick..." <https://arxiv.org/abs/1404.5997>`_ paper.
