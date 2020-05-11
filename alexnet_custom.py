@@ -62,7 +62,7 @@ class AlexNet(nn.Module):
             nn.Dropout(),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            nn.Linear(2, num_classes),
+            nn.Linear(4096, num_classes),
         )
     
     
@@ -70,7 +70,7 @@ class AlexNet(nn.Module):
         features = self.features(x)
         features = self.avgpool(features)
         # Flatten the features:
-        features = features.view(features.size(0), -1)
+        features = torch.flatten(features, 1)
         # If we pass alpha, we can assume we are training the discriminator
         if alpha is not None:
             # gradient reversal layer (backward gradients will be reversed)
