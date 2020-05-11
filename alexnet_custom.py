@@ -65,7 +65,7 @@ class AlexNet(nn.Module):
             nn.Linear(4096, num_classes),
         )
     
-    
+    """
     def forward(self, x, alpha=None):
         features = self.features(x)
         features = self.avgpool(features)
@@ -82,6 +82,14 @@ class AlexNet(nn.Module):
             # do something else
             class_outputs = self.classifier(features)
             return class_outputs
+    """
+    
+    def forward(self, x):
+        x = self.features(x)
+        x = self.avgpool(x)
+        x = torch.flatten(x, 1)
+        x = self.classifier(x)
+        return x
 
 def alexnet(pretrained=False, progress=True, **kwargs):
     r"""AlexNet model architecture from the
